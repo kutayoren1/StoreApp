@@ -1,0 +1,98 @@
+@model StoreApp.Models.ContactViewModel
+@{
+    ViewData["Title"] = "Contact";
+}  
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="~/css/contact.css"/>
+</head>
+    <div class="contactContainer">
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Let's get in touch</h3>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+            dolorum adipisci recusandae praesentium dicta!
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <img src="~/ContactImages/location.png" class="icon" alt="" />
+              <p style="margin-bottom: 0">92 Cherry Drive Uniondale, NY 11553</p>
+            </div>
+            <div class="information">
+              <img src="~/ContactImages/email.png" class="icon" alt="" />
+              <p style="margin-bottom: 0">lorem@ipsum.com</p>
+            </div>
+            <div class="information">
+              <img src="~/ContactImages/phone.png" class="icon" alt="" />
+              <p style="margin-bottom: 0">123-456-789</p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Connect with us :</p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook">
+                <img src="~/ContactImages/facebook.svg" alt="Facebook" />
+              </a>
+              <a href="#" aria-label="Twitter">
+                <img src="~/ContactImages/twitter.svg" alt="Twitter" />
+              </a>
+              <a href="#" aria-label="Instagram">
+                <img src="~/ContactImages/instagram.svg" alt="Instagram" />
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <img src="~/ContactImages/linkedin.svg" alt="LinkedIn" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <form asp-controller="Home" asp-action="Contact" method="post" autocomplete="off">
+            @Html.AntiForgeryToken()
+            <h3 class="title">Contact us</h3>
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div style="background-color: rgba(255,255,255,0.25); color: #fff; padding: 10px 14px; border-radius: 12px; margin-bottom: 12px; font-size: 0.9rem;">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div style="background-color: rgba(220,53,69,0.35); color: #fff; padding: 10px 14px; border-radius: 12px; margin-bottom: 12px; font-size: 0.9rem;">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+            <div class="input-container">
+              <input type="text" name="Name" class="input" required value="@Model?.Name" />
+              <label for="">Name</label>
+              <span>Name</span>
+            </div>
+            <div class="input-container">
+              <input type="email" name="Email" class="input" required value="@Model?.Email" />
+              <label for="">Email</label>
+              <span>Email</span>
+            </div>
+            <div class="input-container">
+              <input type="tel" name="Phone" class="input" value="@Model?.Phone" />
+              <label for="">Phone</label>
+              <span>Phone</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea name="Message" class="input" required>@Model?.Message</textarea>
+              <label for="">Message</label>
+              <span>Message</span>
+            </div>
+            <input type="submit" value="Send" class="btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+<script src="~/js/contact.js"></script>

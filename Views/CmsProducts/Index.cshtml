@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model List<Product>
+@if(TempData["Message"]!= null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+}
+<h1>Products</h1>
+<a asp-controller="CmsProducts" asp-action="Create">Create Product</a>
+<a asp-controller="Auth" asp-action="Logout">Logout</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Stock</th>
+            <th>Image</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Description</td>
+                <td>@product.Stock</td>
+                <td><img src="@product.ImageUrl" alt="@product.Name" width="100" height="100" /></td>
+                <td>
+                    <a asp-controller="CmsProducts" asp-action="Update" asp-route-id="@product.Id">Update</a> |
+                    <a asp-controller="CmsProducts" asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="5">No products available.</td>
+            </tr>
+        }
+    </tbody>
+</table>

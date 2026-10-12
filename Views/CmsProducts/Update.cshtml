@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Update Product";
+}
+
+<h1>Update Product</h1>
+
+@model Product
+
+<form asp-controller="CmsProducts" asp-action="Update" method="post" enctype="multipart/form-data">
+    
+    <!-- Hangi ürünün güncellendiğini tutan ID -->
+    <input type="hidden" asp-for="Id" />
+    
+    <!-- KRİTİK: Eski görsel yolunun formdan kaybolmaması için gizli input olarak ekliyoruz -->
+    <input type="hidden" asp-for="ImageUrl" />
+
+    <label>Product Name:</label>
+    <input type="text" asp-for="Name" /><br />
+
+    <label>Price:</label>
+    <input type="number" asp-for="Price" step="0.01" /><br />
+
+    <label>Description:</label>
+    <textarea asp-for="Description"></textarea><br />
+
+    <label>Stock:</label>
+    <input type="number" asp-for="Stock" /><br />
+
+    <!-- Mevcut görselin önizlemesi (Kullanıcı eski resmi görebilsin) -->
+    <label>Current Image:</label><br />
+    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+    {
+        <img src="@Model.ImageUrl" width="100" style="margin-bottom: 10px;" /><br />
+    }
+
+    <!-- Yeni görsel yükleme alanı (İsteğe bağlı) -->
+    <label>New Image (Optional):</label>
+    <input type="file" asp-for="ImageFile" /><br />
+
+    <button type="submit">Update</button>
+</form>

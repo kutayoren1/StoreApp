@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Create Product";
+}
+<h1>New Product</h1>
+@model Product
+<form asp-controller="CmsProducts" asp-action="Create" method="post" enctype="multipart/form-data">
+<label>Product Name:</label>
+<input type="text" asp-for="Name" />
+<br />
+<label>Price:</label>
+<input type="number" asp-for="Price" step="0.01" />
+<br />
+<label>Description:</label>
+<textarea asp-for="Description"></textarea>
+<br />
+<label>Stock:</label>
+<input type="number" asp-for="Stock" />
+<br />
+<label>Image:</label>
+<input type="file" asp-for="ImageFile" />
+<br />
+<button type="submit">Create</button>
+</form>

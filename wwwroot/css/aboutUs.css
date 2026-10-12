@@ -1,0 +1,104 @@
+﻿.about-hero {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 1.5rem;
+    padding: 3.5rem 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+    .about-hero::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background: rgba(13, 110, 253, 0.08);
+        border-radius: 50%;
+        filter: blur(40px);
+    }
+
+.feature-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 1.25rem;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+    .feature-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08) !important;
+        border-color: rgba(13, 110, 253, 0.2);
+    }
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.stat-badge {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.story-image-wrap {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+    .story-image-wrap img {
+        transition: transform 0.5s ease;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .story-image-wrap:hover img {
+        transform: scale(1.03);
+    }
+
+.mission-card {
+    border-radius: 1.25rem;
+    border-left: 5px solid #0d6efd;
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+    padding: 2rem;
+    height: 100%;
+}
+
+.vision-card {
+    border-radius: 1.25rem;
+    border-left: 5px solid #198754;
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+    padding: 2rem;
+    height: 100%;
+}
+
+.value-pill {
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background: #fbfcfe;
+    border: 1px solid #edf2f7;
+    height: 100%;
+}
+
+.cta-banner {
+    background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+    border-radius: 1.5rem;
+    color: #ffffff;
+    padding: 3.5rem 2rem;
+    box-shadow: 0 15px 35px rgba(13, 110, 253, 0.25);
+}
